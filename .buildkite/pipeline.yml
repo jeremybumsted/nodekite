@@ -1,3 +1,6 @@
+env: BUILDKITE_PLUGIN_FS_CACHE_FOLDER=/Users/jeremy/cache
+
+
 steps:
   - key: "yarn"
     label: ":yarn: Install yarn packages"
