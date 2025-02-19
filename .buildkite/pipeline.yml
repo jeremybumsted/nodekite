@@ -1,0 +1,28 @@
+steps:
+  - key: "yarn"
+    label: ":yarn: Install yarn packages"
+    command: 
+      - mkdir -p tmp/yarn/cache
+      - mkdir -p node_modules
+      - yarn config set cache-folder tmp/yarn/cache
+      - yarn install --check-files --frozen-lockfile
+    plugins:
+      - cache#v1.4.0:
+          path: "node_modules"
+          save:
+          - "file"
+          - "branch"
+          restore: "pipeline"
+          manifest: "yarn.lock"
+
+  - wait: ~
+
+  - key: "js_static_analysis"
+    label: ":node: :sock: Run JS Static analysis"
+    command: "yarn run lint:ci"
+    plugins:
+      - cache#v1.4.0:
+          path: "node_modules"
+          restore: "file"
+          manifest: "yarn.lock"
+    depends_on: yarn
