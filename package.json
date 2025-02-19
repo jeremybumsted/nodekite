@@ -1,0 +1,24 @@
+{
+  "name": "nodekite",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/jeremybumsted/nodekite#readme",
+  "bugs": {
+    "url": "https://github.com/jeremybumsted/nodekite/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremybumsted/nodekite.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {}
+}
