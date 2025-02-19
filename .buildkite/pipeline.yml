@@ -21,7 +21,7 @@ steps:
 
   - key: "js_static_analysis"
     label: ":node: :sock: Run JS Static analysis"
-    command: "yarn run lint:ci"
+    command: "yarn run eslint"
     env:
       - BUILDKITE_PLUGIN_FS_CACHE_FOLDER="/Users/jeremy/cache"
     plugins:
