@@ -1,9 +1,8 @@
-env: BUILDKITE_PLUGIN_FS_CACHE_FOLDER=/Users/jeremy/cache
-
-
 steps:
   - key: "yarn"
     label: ":yarn: Install yarn packages"
+    env:
+      - BUILDKITE_PLUGIN_FS_CACHE_FOLDER="/Users/jeremy/cache"
     command: 
       - mkdir -p tmp/yarn/cache
       - mkdir -p node_modules
@@ -23,6 +22,8 @@ steps:
   - key: "js_static_analysis"
     label: ":node: :sock: Run JS Static analysis"
     command: "yarn run lint:ci"
+    env:
+      - BUILDKITE_PLUGIN_FS_CACHE_FOLDER="/Users/jeremy/cache"
     plugins:
       - cache#v1.4.0:
           path: "node_modules"
